@@ -18,4 +18,22 @@ public class LeetcodeTest {
         }
 
     }
+
+    @Test
+    public void leetcode17Test() {
+        Leetcode17 leetcode17 = new Leetcode17();
+        leetcode17.letterCombinations("");
+        System.out.println(leetcode17.results);
+
+    }
+    @Test
+    public void leetcode39Test() {
+        Leetcode39 leetcode39 = new Leetcode39();
+        leetcode39.combinationSum(new int[]{2,3,6,7},7);
+        System.out.println(leetcode39.results);
+        for (int i = 0; i < leetcode39.results.size(); i++) {
+            System.out.println(leetcode39.sum(leetcode39.results.get(i)));
+        }
+
+    }
 }

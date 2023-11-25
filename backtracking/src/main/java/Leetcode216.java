@@ -19,6 +19,8 @@ public class Leetcode216 {
         }
         return sum;
     }
+
+    // 总结：循环是用来做横向，递归用来做纵向
     public void backtracking(int k, int n,int start) {
         if (path.size() == k && sum(path) == n) {
             results.add(new ArrayList<>(path));
