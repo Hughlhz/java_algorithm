@@ -73,8 +73,14 @@ public class LeetcodeTest {
     }
     @Test
     public void leetcode90Test() {
-        Leetcode90 leetcode90 = new Leetcode90();
+        Leetcode90__ leetcode90 = new Leetcode90__();
         leetcode90.subsetsWithDup(new int[]{1,2,2});
         System.out.println(leetcode90.results);
+    }
+    @Test
+    public void leetcode491Test() {
+        Leetcode491 leetcode = new Leetcode491();
+        leetcode.findSubsequences(new int[]{1,2,3,4,5,6,7,8,9,10,1,1,1,1,1});
+        System.out.println(leetcode.results);
     }
 }

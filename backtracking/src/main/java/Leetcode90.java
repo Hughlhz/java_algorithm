@@ -1,18 +1,16 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Leetcode90 {
     List<List<Integer>> results = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<>();
+
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
-        backtracking(nums,0);
+        backtracking(nums, 0);
         return results;
     }
 
-    public void backtracking(int []nums,int start) {
+    public void backtracking(int[] nums, int start) {
         if (path.size() >= 0) {
             results.add(new ArrayList<>(path));
         }
@@ -23,41 +21,77 @@ public class Leetcode90 {
             path.add(nums[i]);
             backtracking(nums, i + 1);
             path.removeLast();
-            while(i<nums.length-1&&nums[i]==nums[i+1]) i++;
+            while (i < nums.length - 1 && nums[i] == nums[i + 1]) i++;
         }
     }
 }
 
 
-class Solution {
-    List<List<Integer>> result = new ArrayList<>();// 存放符合条件结果的集合
-    LinkedList<Integer> path = new LinkedList<>();// 用来存放符合条件结果
-    boolean[] used;
+// 用集合完成去重  树层去重的话，注意定义集合得在backtracking方法中
+class Leetcode90_ {
+    List<List<Integer>> results = new ArrayList<>();
+    LinkedList<Integer> path = new LinkedList<>();
+
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        if (nums.length == 0){
-            result.add(path);
-            return result;
-        }
         Arrays.sort(nums);
-        used = new boolean[nums.length];
-        subsetsWithDupHelper(nums, 0);
-        return result;
+        backtracking(nums, 0);
+        return results;
     }
 
-    private void subsetsWithDupHelper(int[] nums, int startIndex){
-        result.add(new ArrayList<>(path));
-        if (startIndex >= nums.length){
+    public void backtracking(int[] nums, int start) {
+        HashSet<Integer> used = new HashSet<>();
+        if (path.size() >= 0) {
+            results.add(new ArrayList<>(path));
+        }
+        if (start >= nums.length) {
             return;
         }
-        for (int i = startIndex; i < nums.length; i++){
-            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]){
-                continue;
-            }
-            path.add(nums[i]);
-            used[i] = true;
-            subsetsWithDupHelper(nums, i + 1);
+        for (int i = start; i < nums.length; i++) {
+            if (!used.contains(nums[i])) {
+                path.add(nums[i]);
+                used.add(nums[i]);
+            } else continue;
+            backtracking(nums, i + 1);
             path.removeLast();
-            used[i] = false;
+//            while(i<nums.length-1&&nums[i]==nums[i+1]) i++;
         }
     }
 }
+
+//使用全局used数组进行去重 前提是排序了
+// 利用used[]可以区分树枝上和树层上去重
+class Leetcode90__ {
+    List<List<Integer>> results = new ArrayList<>();
+    LinkedList<Integer> path = new LinkedList<>();
+    boolean used[];
+
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        used = new boolean[nums.length];
+        backtracking(nums, 0);
+        return results;
+    }
+
+    public void backtracking(int[] nums, int start) {
+        if (path.size() >= 0) {
+            results.add(new ArrayList<>(path));
+        }
+        if (start >= nums.length) {
+            return;
+        }
+        for (int i = start; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+                continue;
+            } else {
+                path.add(nums[i]);
+                used[i] = true;
+            }
+            backtracking(nums, i + 1);
+            path.removeLast();
+            used[i]=false;
+//            while(i<nums.length-1&&nums[i]==nums[i+1]) i++;
+        }
+    }
+}
+
+
