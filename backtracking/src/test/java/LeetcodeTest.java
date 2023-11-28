@@ -65,4 +65,16 @@ public class LeetcodeTest {
         Leetcode93 leetcode93 = new Leetcode93();
         System.out.println(leetcode93.isSubIP("01"));
     }
+    @Test
+    public void leetcode78Test() {
+        Leetcode78 leetcode78 = new Leetcode78();
+        leetcode78.subsets(new int[]{1,2,3});
+        System.out.println(leetcode78.results);
+    }
+    @Test
+    public void leetcode90Test() {
+        Leetcode90 leetcode90 = new Leetcode90();
+        leetcode90.subsetsWithDup(new int[]{1,2,2});
+        System.out.println(leetcode90.results);
+    }
 }
