@@ -36,4 +36,33 @@ public class LeetcodeTest {
         }
 
     }
+
+    @Test
+    public void leetcode40Test() {
+        Leetcode40 leetcode40 = new Leetcode40();
+        leetcode40.combinationSum2(new int[]{1,1,2,5,6,7,7},8);
+        for (int i = 0; i < leetcode40.results.size(); i++) {
+            System.out.println(leetcode40.results.get(i));
+        }
+    }
+
+    @Test
+    public void leetcode131Test() {
+        Leetcode131 leetcode131 = new Leetcode131();
+        leetcode131.partition("aab");
+        System.out.println(leetcode131.results);
+    }
+
+    @Test
+    public void leetcode93Test() {
+        Leetcode93 leetcode93 = new Leetcode93();
+        leetcode93.restoreIpAddresses("25525511135");
+        System.out.println(leetcode93.final_results);
+    }
+
+    @Test
+    public void IPTest() {
+        Leetcode93 leetcode93 = new Leetcode93();
+        System.out.println(leetcode93.isSubIP("01"));
+    }
 }
