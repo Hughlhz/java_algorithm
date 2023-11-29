@@ -83,4 +83,16 @@ public class LeetcodeTest {
         leetcode.findSubsequences(new int[]{1,2,3,4,5,6,7,8,9,10,1,1,1,1,1});
         System.out.println(leetcode.results);
     }
+    @Test
+    public void leetcode46Test() {
+        Leetcode46 leetcode = new Leetcode46();
+        leetcode.permute(new int[]{1,2,3});
+        System.out.println(leetcode.results);
+    }
+    @Test
+    public void leetcode47Test() {
+        Leetcode47 leetcode = new Leetcode47();
+        leetcode.permuteUnique(new int[]{1,1,3});
+        System.out.println(leetcode.results);
+    }
 }
