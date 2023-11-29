@@ -1,5 +1,9 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class LeetcodeTest {
     @Test
     public void leetcode77Test() {
@@ -94,5 +98,45 @@ public class LeetcodeTest {
         Leetcode47 leetcode = new Leetcode47();
         leetcode.permuteUnique(new int[]{1,1,3});
         System.out.println(leetcode.results);
+    }
+
+    @Test
+    public void leetcode332Test() {
+        Leetcode332_ leetcode = new Leetcode332_();
+        List<List<String>> tickekts = Arrays.asList(
+//                Arrays.asList("JFK", "SFO"),
+//                Arrays.asList("JFK", "ATL"),
+//                Arrays.asList("SFO", "ATL"),
+//                Arrays.asList("ATL","JFK"),
+//                Arrays.asList("ATL","SFO")
+                //
+//                Arrays.asList("JFK","KUL"),
+//                Arrays.asList("JFK","NRT"),
+//                Arrays.asList("NRT","JFK")
+                Arrays.asList("EZE","TIA"),
+                Arrays.asList("EZE","HBA"),
+                Arrays.asList("AXA","TIA"),
+                Arrays.asList("JFK","AXA"),
+                Arrays.asList("ANU","JFK"),
+                Arrays.asList("ADL","ANU"),
+                Arrays.asList("TIA","AUA"),
+                Arrays.asList("ANU","AUA"),
+                Arrays.asList("ADL","EZE"),
+                Arrays.asList("ADL","EZE"),
+                Arrays.asList("EZE","ADL"),
+                Arrays.asList("AXA","EZE"),
+                Arrays.asList("AUA","AXA"),
+                Arrays.asList("JFK","AXA"),
+                Arrays.asList("AXA","AUA"),
+                Arrays.asList("AUA","ADL"),
+                Arrays.asList("ANU","EZE"),
+                Arrays.asList("TIA","ADL"),
+                Arrays.asList("EZE","ANU"),
+                Arrays.asList("AUA","ANU")
+
+                );
+
+        leetcode.findItinerary(tickekts);
+        System.out.println(leetcode.result);
     }
 }
