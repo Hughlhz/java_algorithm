@@ -139,4 +139,23 @@ public class LeetcodeTest {
         leetcode.findItinerary(tickekts);
         System.out.println(leetcode.result);
     }
+
+    @Test
+    public void leetcode51Test() {
+        Leetcode51 leetcode = new Leetcode51();
+//        char[][] charArray = {{'1', '2', '3', '4'}, {'1', '2', '3', '4'}, {'1', '2', '3', '4'}, {'1', '2', '3', '4'}};
+//        char[][] charArray = new char[4][4];
+//        Arrays.stream(charArray).forEach(v->Arrays.fill(v,'.'));
+        leetcode.solveNQueens(4);
+        System.out.println(leetcode.results);
+
+    }
+    @Test
+    public void leetcode51_isLegalTest() {
+        Leetcode51 leetcode = new Leetcode51();
+        char[][] charArray = {{'Q', '.', '.', '.'}, {'.', '.', 'Q', '.'}, {'.', '.', '.', 'Q'}, {'.', '.', '.', '.'}};
+//        char[][] charArray = new char[4][4];
+//        Arrays.stream(charArray).forEach(v->Arrays.fill(v,'.'));
+        System.out.println(leetcode.isLegal(charArray, 3, 2));
+    }
 }
