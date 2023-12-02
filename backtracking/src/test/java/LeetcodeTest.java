@@ -158,4 +158,21 @@ public class LeetcodeTest {
 //        Arrays.stream(charArray).forEach(v->Arrays.fill(v,'.'));
         System.out.println(leetcode.isLegal(charArray, 3, 2));
     }
+
+    @Test
+    public void leetcode37_isLegalTest() {
+        char[][] board = {{'5', '3', '.', '.', '7', '.', '.', '.', '.'}, {'6', '.', '.', '1', '9', '5', '.', '.', '.'}, {'.', '9', '8', '.', '.', '.', '.', '6', '.'}, {'8', '.', '.', '.', '6', '.', '.', '.', '3'}, {'4', '.', '.', '8', '.', '3', '.', '.', '1'}, {'7', '.', '.', '.', '2', '.', '.', '.', '6'}, {'.', '6', '.', '.', '.', '.', '2', '8', '.'}, {'.', '.', '.', '4', '1', '9', '.', '.', '5'}, {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
+        Leetcode37 leetcode37 = new Leetcode37(board);
+//        List<String> strings = leetcode37.array2List(board);
+//        strings.stream().forEach(System.out::println);
+//        System.out.println(leetcode37.isLegal(5, 3, '2'));
+        leetcode37.solveSudoku(board);
+        List<String> strings = leetcode37.array2List(leetcode37.board);
+        strings.stream().forEach(System.out::println);
+
+    }
+    @Test
+    public void generalTest() {
+        System.out.println(1/3);
+    }
 }
