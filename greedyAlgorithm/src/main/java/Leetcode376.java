@@ -1,6 +1,4 @@
 public class Leetcode376 {
-<<<<<<< HEAD
-=======
     int [] nums;
     public int wiggleMaxLength(int[] nums) {
         this.nums=nums;
@@ -44,9 +42,4 @@ public class Leetcode376 {
         }
         return i;
     }
-
-
-
-
->>>>>>> master
 }

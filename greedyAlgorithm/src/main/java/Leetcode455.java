@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-public class Leetcode455 {
-=======
+
 import java.util.Arrays;
 
 public class Leetcode455 {
@@ -15,5 +13,5 @@ public class Leetcode455 {
         }
         return  g_index;
     }
->>>>>>> master
+
 }
