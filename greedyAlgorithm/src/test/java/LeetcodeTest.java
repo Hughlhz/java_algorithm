@@ -33,7 +33,7 @@ public class LeetcodeTest {
     @Test
     public void leetcode45Test() {
         Leetcode45 leetcode = new Leetcode45();
-        System.out.println(leetcode.jump(new int[]{2,3,1,1,4}));
+        System.out.println(leetcode.jump(new int[]{2,3,0,1,4}));
 
     }
 }

@@ -12,6 +12,7 @@
         <module>array</module>
         <module>backtracking</module>
         <module>greedyAlgorithm</module>
+        <module>btree</module>
     </modules>
 
     <properties>
