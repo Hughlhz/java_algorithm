@@ -55,4 +55,21 @@ public class Leetcode144 {
 
         return result;
     }
+
+    public List<Integer> preorderTraversal__(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode p=root;
+        while (p != null || !stack.isEmpty()) {
+            while (p != null) {
+                result.add(p.val);
+                if (p.right != null) {
+                    stack.push(p.right);
+                }
+                p=p.left;
+            }
+            p = stack.pop();
+        }
+        return result;
+    }
 }
