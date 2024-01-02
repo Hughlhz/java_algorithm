@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class LeetcodeTest {
+import javax.swing.*;
+import java.util.List;
+
+public class LeetcodeTest {
 }

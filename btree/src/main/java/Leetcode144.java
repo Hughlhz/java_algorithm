@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Definition for a binary tree node.
@@ -30,5 +31,28 @@ public class Leetcode144 {
         result.add(root.val);
         preorder(root.left);
         preorder(root.right);
+    }
+
+    public List<Integer> preorderTraversal_(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        TreeNode tempNode;
+        while (!stack.empty()) {
+            tempNode=stack.pop();
+            result.add(tempNode.val);
+            if (tempNode.right != null) {
+                stack.push(tempNode.right);
+            }
+            if (tempNode.left != null) {
+                stack.push(tempNode.left);
+            }
+        }
+
+
+        return result;
     }
 }
