@@ -43,4 +43,33 @@ public class Leetcode94 {
 
         return result;
     }
+
+    public List<Integer> inorderTraversal__(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode temp = new TreeNode();
+        ArrayList<Integer> result = new ArrayList<>();
+        if(root!=null) stack.push(root);
+        while (!stack.isEmpty()) {
+            temp = stack.peek();
+            if (temp != null) {
+                stack.pop();
+                if (temp.right != null) {
+                    stack.push(temp.right);
+                }
+                stack.push(temp);
+                stack.push(null);
+                if (temp.left != null) {
+                    stack.push(temp.left);
+
+                }
+
+            } else {
+                stack.pop();
+                temp=stack.pop();
+                result.add(temp.val);
+            }
+        }
+        return result;
+
+    }
 }
