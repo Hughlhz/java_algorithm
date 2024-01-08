@@ -37,6 +37,9 @@ public class Leetcode101 {
         while (!stack.isEmpty()) {
             t1 = stack.pop();
             t2 = stack.pop();
+            if (t1 == null && t2 == null) {
+                continue;
+            }
             if (t1 == null && t2 != null) {
                 return false;
             }
@@ -46,9 +49,7 @@ public class Leetcode101 {
             if (t1.val != t2.val) {
                 return false;
             }
-            if (t1 == null && t2 == null) {
-                continue;
-            }
+
             if (t1.val == t2.val) {
                 stack.push(t1.left);
                 stack.push(t2.right);
