@@ -59,6 +59,36 @@ public class Leetcode144 {
     public List<Integer> preorderTraversal__(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
+        TreeNode p;
+        if (root != null) {
+            stack.push(root);
+        }
+        while (!stack.isEmpty()) {
+            p = stack.peek();
+            if (p != null) {
+                stack.pop();
+
+                if (p.right != null) {
+                    stack.push(p.right);
+                }
+
+                if (p.left != null) {
+                    stack.push(p.left);
+                }
+                stack.push(p);
+                stack.push(null);
+
+            }else {
+                stack.pop();
+                p=stack.pop();
+                result.add(p.val);
+            }
+        }
+        return result;
+    }
+    public List<Integer> preorderTraversal___(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
         TreeNode p=root;
         while (p != null || !stack.isEmpty()) {
             while (p != null) {
