@@ -1,6 +1,6 @@
 import org.junit.Test;
+import review.backtracking.Leetcode17;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,7 +8,7 @@ public class LeetcodeTest {
     @Test
     public void leetcode77Test() {
         Leetcode77 leetcode77 = new Leetcode77();
-        leetcode77.combine(4,2);
+        leetcode77.combine(5,2);
         System.out.println(leetcode77.results);
     }
 
@@ -31,6 +31,13 @@ public class LeetcodeTest {
 
     }
     @Test
+    public void leetcode17TestReview() {
+        Leetcode17 leetcode17 = new Leetcode17();
+        leetcode17.letterCombinations("23");
+        System.out.println(leetcode17.results);
+
+    }
+    @Test
     public void leetcode39Test() {
         Leetcode39 leetcode39 = new Leetcode39();
         leetcode39.combinationSum(new int[]{2,3,6,7},7);
@@ -38,6 +45,16 @@ public class LeetcodeTest {
         for (int i = 0; i < leetcode39.results.size(); i++) {
             System.out.println(leetcode39.sum(leetcode39.results.get(i)));
         }
+
+    }
+    @Test
+    public void leetcode39TestReview() {
+        Leetcode39 leetcode39 = new Leetcode39();
+        leetcode39.combinationSum(new int[]{2,3,6,7},7);
+        System.out.println(leetcode39.results);
+//        for (int i = 0; i < leetcode39.results.size(); i++) {
+//            System.out.println(leetcode39.sum(leetcode39.results.get(i)));
+//        }
 
     }
 
@@ -56,7 +73,12 @@ public class LeetcodeTest {
         leetcode131.partition("aab");
         System.out.println(leetcode131.results);
     }
-
+    @Test
+    public void leetcode131TestReview() {
+        review.backtracking.Leetcode131 leetcode131 = new review.backtracking.Leetcode131();
+        leetcode131.partition("aab");
+        System.out.println(leetcode131.results);
+    }
     @Test
     public void leetcode93Test() {
         Leetcode93 leetcode93 = new Leetcode93();

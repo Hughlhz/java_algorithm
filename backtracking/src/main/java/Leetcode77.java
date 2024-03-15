@@ -18,6 +18,7 @@ public class Leetcode77 {
             return;
         }
         for (int i=start; i <= n; i++) {
+            if(k-path.size()>n-i+1) return;//剪枝优化，可以直接优化为循环提前结束
             path.add(i);
             backtracking(n,k,i+1);
             path.removeLast();

@@ -1,3 +1,5 @@
+package review.backtracking;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,21 +9,22 @@ public class Leetcode131 {
     LinkedList<String> path = new LinkedList<>();
 
     public List<List<String>> partition(String s) {
-        backtracking(s, 0);
+        backtracking(0,s);
         return results;
     }
 
-    public void backtracking(String s, int start) {
-        if (start >= s.length()) {
+    private void backtracking(int start,String s) {
+        if (start == s.length()) {
             results.add(new ArrayList<>(path));
             return;
         }
+
         for (int i = start; i < s.length(); i++) {
-            if (isPalindrome(s.substring(start, i + 1))) {
-                path.add(s.substring(start,i+1));
-            }else continue;
-            backtracking(s, i + 1);
-            path.removeLast();
+            if (isPalindrome(s.substring(start, i+1))) {
+                path.add(s.substring(start, i+1));
+                backtracking(i + 1, s);
+                path.removeLast();
+            }
         }
     }
     public boolean isPalindrome(String s) {
