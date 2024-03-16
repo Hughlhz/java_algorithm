@@ -1,2 +1,4 @@
-package annotations;public @interface Star {
+package annotations;
+
+public @interface Star {
 }

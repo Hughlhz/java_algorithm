@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class Test {
+import annotations.Star;
+
+@Star
+public class Test {
 }
