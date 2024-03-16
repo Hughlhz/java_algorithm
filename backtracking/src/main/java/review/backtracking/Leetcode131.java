@@ -9,28 +9,29 @@ public class Leetcode131 {
     LinkedList<String> path = new LinkedList<>();
 
     public List<List<String>> partition(String s) {
-        backtracking(0,s);
+        backtracking(0, s);
         return results;
     }
 
-    private void backtracking(int start,String s) {
+    private void backtracking(int start, String s) {
         if (start == s.length()) {
             results.add(new ArrayList<>(path));
             return;
         }
 
         for (int i = start; i < s.length(); i++) {
-            if (isPalindrome(s.substring(start, i+1))) {
-                path.add(s.substring(start, i+1));
+            if (isPalindrome(s.substring(start, i + 1))) {
+                path.add(s.substring(start, i + 1));
                 backtracking(i + 1, s);
                 path.removeLast();
             }
         }
     }
+
     public boolean isPalindrome(String s) {
-        int i=0,j=s.length()-1;
+        int i = 0, j = s.length() - 1;
         for (; i < j; i++, j--) {
-            if(s.charAt(i)!=s.charAt(j)) return  false;
+            if (s.charAt(i) != s.charAt(j)) return false;
         }
         return true;
     }
