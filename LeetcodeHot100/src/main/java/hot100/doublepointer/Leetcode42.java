@@ -1,12 +1,18 @@
 package hot100.doublepointer;
 
-import java.util.Enumeration;
+import annotations.Star;
 
+import java.util.LinkedList;
+import java.util.Map;
+@Star("单调栈的思路错了==")
 public class Leetcode42 {
     public int trap(int[] height) {
+        //[0,1,0,2,1,0,1,3,2,1,2,1]==>6
+        LinkedList<Integer> stack = new LinkedList<>();
+        return 0;
+    }
+    public int trap_(int[] height) {
         if(height.length<=2) return 0;
-
-
         int left=0;
         int right=1;
         int volume=0;
