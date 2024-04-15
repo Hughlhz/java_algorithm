@@ -1,5 +1,8 @@
 package com.Demo;
 
+import annotations.Star;
+
+@Star("仔细观察矩阵生成的过程，找到规律并模拟")
 public class Leetcode59 {
     public int[][] generateMatrix(int n) {
         int[][] result = new int[n][n];

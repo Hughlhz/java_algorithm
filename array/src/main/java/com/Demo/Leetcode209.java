@@ -1,44 +1,25 @@
 package com.Demo;
 
+import annotations.Star;
 import org.junit.Test;
 
 import java.net.Inet4Address;
 
+@Star("注意Integer.MAX_VALUE的使用，以及使用滑动窗口来减少计算次数")
 public class Leetcode209 {
-    //    public int minSubArrayLen(int s, int[] nums) {
-//        int front = 0, back = 0;
-//        int result = Integer.MAX_VALUE;
-//        int sum = 0;
-//        for (; back < nums.length; back++) {
-//
-//            sum += nums[back];
-//            while (sum >= s) {
-//                sum -= nums[front];
-//                front++;
-//                if (sum < s)
-//                    result = back - front + 2;
-//            }
-//
-//
-//        }
-//        return result == Integer.MAX_VALUE ? 0 : result;
-//    }
     @Test
     public int minSubArrayLen(int s, int[] nums) {
-        int front = 0, back = 0;
-        int sum = 0;
+        int fast=0,slow=0;
+        int sum=0;
         int result=Integer.MAX_VALUE;
-        int temp=0;
-        for (; back < nums.length; back++) {
-            sum += nums[back];
+        for (; fast < nums.length; fast++) {
+            sum += nums[fast];
             while (sum >= s) {
-                sum -= nums[front];
-                temp=back-front+1;
-                front++;
-                if(result>temp) result=temp;
+                result = Math.min(result, fast - slow + 1);
+                sum -= nums[slow];
+                slow++;
             }
-
         }
-        return result==Integer.MAX_VALUE?0:result;
+        return result == Integer.MAX_VALUE ? 0 : result;
     }
 }
