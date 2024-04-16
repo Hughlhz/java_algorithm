@@ -19,6 +19,8 @@
         <module>utils</module>
         <module>LeetcodeHot100</module>
         <module>collections</module>
+        <module>dailyproblem</module>
+        <module>sql</module>
 
     </modules>
 
