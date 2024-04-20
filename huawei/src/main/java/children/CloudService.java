@@ -40,15 +40,21 @@ public class CloudService {
             else
                 mediumMap.put(params[0], Integer.valueOf(params[3]));
         }
-        int count = 0;
+//        int count = 0;
+//        for (String root : roots) {
+//            int sum = 0;
+//            sum = dfs(root);
+//            if (sum > m) {
+//                count++;
+//            }
+//        }
+//        System.out.println(count);
+
         for (String root : roots) {
-            int sum = 0;
-            sum = dfs(root);
-            if (sum > m) {
-                count++;
-            }
+            int height = 0;
+            height = dfsHeight(root);
+            System.out.println(height);
         }
-        System.out.println(count);
     }
 
     private static int dfs(String node) {
@@ -61,6 +67,37 @@ public class CloudService {
         }
         return sum;
     }
+
+//    private static int dfsHeight(String node) {
+//        HashSet<String> children = childrenMap.get(node);
+//        if (children == null){
+//            return 1;
+//        }
+//        int max=0;
+//        for (String n : children) {
+//            max = Math.max(dfsHeight(n), max);
+//        }
+//        return max+1;
+//    }
+    private static int dfsHeight(String node) {
+        HashSet<String> children = childrenMap.get(node);
+        if (children == null){
+            return 0;
+        }
+        int max = 0;
+        for (String n : children) {
+            max = Math.max(dfsHeight(n), max);
+        }
+        return max + 1;
+    }
+//    private static int dfsHeight(String node) {
+//        HashSet<String> children = childrenMap.get(node);
+//        if (children == null){
+//            return 1;
+//        }
+//        return 1 + children.stream().mapToInt(CloudService::dfsHeight).max().orElse(0);
+//    }
+
 
     //    private static int dfs(Node node) {
 //        if (node.children.size() == 0) {
