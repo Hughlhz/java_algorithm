@@ -25,6 +25,8 @@
         <module>huawei</module>
         <module>union-find</module>
         <module>graph</module>
+        <module>IO</module>
+        <module>LeetcodeWeekly</module>
 
     </modules>
 
