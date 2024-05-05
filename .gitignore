@@ -39,3 +39,6 @@ build/
 .DS_Store
 /dp/src/main/java/local/
 /union-find/src/main/java/local/
+/monotonicStack/src/main/java/reviews/
+/**/src/main/java/reviews/**
+
