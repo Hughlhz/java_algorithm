@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -99,6 +100,28 @@ public class Leetcode144 {
                 p=p.left;
             }
             p = stack.pop();
+        }
+        return result;
+    }
+
+    public List<Integer> preorderTraversal0(TreeNode root) {
+        LinkedList<TreeNode> stack = new LinkedList<>();
+        List<Integer>result= new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if(node!=null)
+            {
+                if(node.right!= null)stack.push(node.right);
+                if(node.left!=null)stack.push(node.left);
+                stack.push(node);
+                stack.push(null);
+            }else {
+                result.add(stack.pop().val);
+            }
         }
         return result;
     }
