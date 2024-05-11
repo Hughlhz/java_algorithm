@@ -1,10 +1,7 @@
 package hot100.dynamic;
 
-import org.junit.Before;
-import org.junit.Test;
-
 public class Leetcode700 {
-    @Test
+
     public int numTrees(int n) {
         if (n <= 1) {
             return 1;
