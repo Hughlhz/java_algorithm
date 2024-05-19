@@ -4,12 +4,11 @@ import annotations.Star;
 public class QuickSort {
     int [] nums;
     public int[] sortArray(int[] nums) {
-        this.nums = nums;
-        quicksort(0, nums.length - 1);
+        quicksort(nums,0, nums.length - 1);
         return nums;
     }
 
-    private void quicksort(int left, int right) {
+    private void quicksort1(int left, int right) {
         if (left >= right) {
             return;
         }
@@ -30,10 +29,43 @@ public class QuickSort {
             nums[right--] = nums[left];
         }
         nums[left] = pivot;
-        quicksort(oldLeft, left - 1);
-        quicksort(left + 1, oldRight);
+        quicksort1(oldLeft, left - 1);
+        quicksort1(left + 1, oldRight);
 
     }
+    private void quicksort(int []arr,int left, int right) {
+        if(left>=right) return;
+        int tar=arr[left+(int)(Math.random()*(right-left+1))];
+        int [] border=partition(arr,tar,left,right);
+        quicksort(arr, left, border[0]-1);
+        quicksort(arr, border[1]+1, right);
+    }
+
+    private int[] partition(int[] arr, int tar,int left,int right) {
+        int less=left;
+        int more=right;
+        int index=left;
+        while (index<=more){
+            if(arr[index]<tar){
+                swap(arr, less++, index++);
+            }else if(arr[index]==tar){
+                index++;
+            }else {
+                swap(arr, index, more--);
+            }
+        }
+        return new int[]{less, more};
+    }
+
+    private void swap(int[] arr, int index, int i) {
+        int temp = arr[index];
+        arr[index] = arr[i];
+        arr[i]=temp;
+    }
+
+
+    //荷兰国旗升级版本
+
 
 
 }
