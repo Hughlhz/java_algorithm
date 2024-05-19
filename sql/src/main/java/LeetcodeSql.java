@@ -64,4 +64,17 @@ public class LeetcodeSql {
     public void sql1280() {
         //笛卡尔积和full join
     }
+
+    @Select("select a.name from Employee a join Employee b on b.managerId=a.id group by a.id having count(a.id)>=5;")
+    public void sql570() {
+        //group by 和having 注意完备的sql语句的执行顺序
+    }
+
+    @Select("select a.user_id ,if(count(b.user_id)=0 or b.action is Null,0, round(sum(if(b.action=\"confirmed\",1,0))/count(b.user_id),2)) confirmation_rate from Signups a left join Confirmations b on a.user_id=b.user_id group by a.user_id;")
+    public void sql1934() {
+        // 外连接使用group by 时，一定要用主表的字段
+        // 求比率的问题 用avg(if) 来解决，比统计后做除法要快
+        // if(count(b.user_id)=0 or b.action is Null,0, round(sum(if(b.action="confirmed",1,0))/count(b.user_id),2)) confirmation_rate
+        // 替换成 round(avg(if(b.action = 'confirmed',1,0)),2)
+    }
 }
