@@ -60,6 +60,8 @@ public class normalStream {
             //收集到数组
         Stream<String> stream = Stream.of("One", "Two", "Three", "Four", "Five");
         String[] array = stream.toArray(String[]::new);
+        Stream<String> streamNums = Stream.of("12", "34", "56", "78", "90");
+        Integer[] array1 = streamNums.map(Integer::valueOf).toArray(Integer[]::new);
         //4、拼接流
         //使用Collectors.join() 方法拼接，要求流对象都是String类型
         System.out.println(ints.stream().map(e -> String.valueOf(e)).collect(Collectors.joining("--->")));
