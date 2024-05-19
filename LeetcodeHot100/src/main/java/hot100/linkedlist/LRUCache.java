@@ -2,13 +2,13 @@ package hot100.linkedlist;
 
 import annotations.Star;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 @Star("通过java中hashmap的子类linkedhashmap来做，这个map中会根据插入顺序或者使用顺序构建双向链表；")
 // 一个更简洁的做法
 public class LRUCache extends LinkedHashMap<Integer, Integer>{
     private int capacity;
-
     public LRUCache(int capacity) {
         super(capacity, 0.75F, true);
         this.capacity = capacity;
