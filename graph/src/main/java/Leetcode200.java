@@ -25,6 +25,7 @@ public class Leetcode200 {
         return count;
     }
     static class Pair{
+        //Pair类可以直接用数组代替，传递一个数组保存二元组
         int x;
         int y;
 
