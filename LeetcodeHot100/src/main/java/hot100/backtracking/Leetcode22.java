@@ -29,4 +29,40 @@ public class Leetcode22 {
                 path.deleteCharAt(path.length() - 1);
             }
     }
+
+    class Solution {
+        List<String> result=new ArrayList<>();
+        StringBuilder path = new StringBuilder();
+        public List<String> generateParenthesis(int n) {
+            dfs(0, 0,n);
+            return result;
+        }
+
+        private void dfs(int l, int r,int n) {
+            if (l + r == n * 2) {
+                result.add(path.toString());
+                return;
+            }
+            char[] candiates=null;
+            if(l<n){
+                if (l <= r) {
+                    candiates = new char[]{'('};
+                } else {
+                    candiates = new char[]{'(', ')'};
+                }
+            }else {
+                candiates = new char[]{')'};
+            }
+            for (int i = 0; i < candiates.length; i++) {
+                path.append(candiates[i]);
+                if(candiates[i]=='(') {
+                    dfs(l + 1, r, n);
+                    path.deleteCharAt(path.length() - 1);
+                }else {
+                    dfs(l, r + 1, n);
+                    path.deleteCharAt(path.length() - 1);
+                }
+            }
+        }
+    }
 }
