@@ -43,6 +43,7 @@ public class normalStream {
         List<Integer> list = "12345".chars().boxed().toList();
         //3、流的收集
         // 基本类型流无法收集，先用boxed方法装箱
+        // 基本流可以直接收集成基本类型数组 对象流只能收集成对象数组 int->int[]  Integer->Integer[]
             //收集到list
         //注意 直接toList()会得到一个不可变的结果 用collect()收集才可以得到可变的结果
         List<Integer> ints = "12345".chars().boxed().collect(Collectors.toList());
