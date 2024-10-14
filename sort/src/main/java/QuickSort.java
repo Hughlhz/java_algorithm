@@ -35,7 +35,7 @@ public class QuickSort {
     }
     private void quicksort(int []arr,int left, int right) {
         if(left>=right) return;
-        int tar=arr[left+(int)(Math.random()*(right-left+1))];
+        int tar=arr[left+(int)(Math.random()*(right-left+1))];//不能传入mid索引 荷兰国旗必须用值
         int [] border=partition(arr,tar,left,right);
         quicksort(arr, left, border[0]-1);
         quicksort(arr, border[1]+1, right);

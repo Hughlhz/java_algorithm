@@ -26,4 +26,9 @@ public class Leetcode76 {
         }
         return len == Integer.MAX_VALUE ? "" : s.substring(resStart, resStart + len);
     }
+
+    public static void main(String[] args) {
+        Leetcode76 leetcode76 = new Leetcode76();
+        System.out.println(leetcode76.minWindow("asbaaacbbddaabbdd", "aabb"));
+    }
 }
